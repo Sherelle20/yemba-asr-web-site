@@ -20,7 +20,7 @@ def transcribe_model2(audio_path, lang="fr"):
 # ========================
 st.title("🎙️ Démonstration Yemba ASR - Transcription Automatique")
 
-st.write("Cette application permet de charger un fichier audio (WAV, MP3, etc.) et d’obtenir une transcription en langue Yemba avec deux modèles différents.")
+st.write("Cette application permet de charger un fichier audio (WAV) et d’obtenir une transcription en langue Yemba avec deux modèles différents.")
 
 # Choix du modèle
 model_choice = st.radio(
