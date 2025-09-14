@@ -25,7 +25,7 @@ st.write("Cette application permet de charger un fichier audio (WAV, MP3, etc.) 
 # Choix du modèle
 model_choice = st.radio(
     "Sélectionnez le modèle ASR à utiliser :",
-    ("Modèle 1 - Kaldi baseline", "Modèle 2 - Kaldi amélioré")
+    ("Modèle 1 - Kaldi baseline", "Modèle 2 - Modele GNN")
 )
 
 # Upload de fichier
