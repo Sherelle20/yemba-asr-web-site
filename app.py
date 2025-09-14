@@ -61,10 +61,8 @@ st.header("📊 Comparaison des modèles")
 
 # Exemple de métriques — à remplacer par tes vraies valeurs
 metrics_data = {
-    "Modèle": ["Kaldi baseline", "Kaldi amélioré"],
-    "WER (%)": [18.5, 12.3],
-    "CER (%)": [10.2, 6.7],
-    "Temps d'inférence (s)": [2.4, 1.8],
+    "Modèle": ["Kaldi baseline", "Modele GNN "],
+    "WER (%) Erreur sur le mot": [6.61, 64.67],
 }
 
 metrics_df = pd.DataFrame(metrics_data)
