@@ -10,9 +10,9 @@ def transcribe_audio(audio_path, lang="fr"):
     return f"Transcription de démo pour le fichier : {os.path.basename(audio_path)}"
 
 # Titre
-st.title("🎙️ Démonstration ASR - Transcription Automatique")
+st.title("🎙️ Démonstration Yemba ASR - Transcription Automatique")
 
-st.write("Cette application permet de charger un fichier audio (WAV, MP3, etc.) et d’obtenir une transcription grâce à ton modèle ASR.")
+st.write("Cette application permet de charger un fichier audio (WAV, MP3, etc.) et d’obtenir une transcription en langue Yemba.")
 
 # Upload de fichier
 uploaded_file = st.file_uploader("Choisissez un fichier audio", type=["wav", "mp3", "ogg"])
