@@ -1,18 +1,32 @@
 import streamlit as st
 import tempfile
 import os
+import pandas as pd
 
-# Ici tu importes ton modèle ASR
-# Exemple : from my_asr_module import transcribe_audio
-# Pour démo sans modèle, on simule une transcription
-def transcribe_audio(audio_path, lang="fr"):
-    # À remplacer par ton vrai code de prédiction
-    return f"Transcription de démo pour le fichier : {os.path.basename(audio_path)}"
+# ========================
+# Démo de 2 modèles ASR
+# ========================
 
-# Titre
+def transcribe_model1(audio_path, lang="fr"):
+    # ⚠️ Remplacer par ton vrai modèle Kaldi / ASR 1
+    return f"[Modèle 1] Transcription de démo pour {os.path.basename(audio_path)}"
+
+def transcribe_model2(audio_path, lang="fr"):
+    # ⚠️ Remplacer par ton vrai modèle Kaldi / ASR 2
+    return f"[Modèle 2] Transcription de démo pour {os.path.basename(audio_path)}"
+
+# ========================
+# Interface Streamlit
+# ========================
 st.title("🎙️ Démonstration Yemba ASR - Transcription Automatique")
 
-st.write("Cette application permet de charger un fichier audio (WAV, MP3, etc.) et d’obtenir une transcription en langue Yemba.")
+st.write("Cette application permet de charger un fichier audio (WAV, MP3, etc.) et d’obtenir une transcription en langue Yemba avec deux modèles différents.")
+
+# Choix du modèle
+model_choice = st.radio(
+    "Sélectionnez le modèle ASR à utiliser :",
+    ("Modèle 1 - Kaldi baseline", "Modèle 2 - Kaldi amélioré")
+)
 
 # Upload de fichier
 uploaded_file = st.file_uploader("Choisissez un fichier audio", type=["wav", "mp3", "ogg"])
@@ -27,12 +41,32 @@ if uploaded_file is not None:
 
     st.write("🔄 Transcription en cours...")
 
-    # Appel au modèle
-    transcript = transcribe_audio(tmp_path)
+    # Sélection du modèle
+    if "Modèle 1" in model_choice:
+        transcript = transcribe_model1(tmp_path)
+    else:
+        transcript = transcribe_model2(tmp_path)
 
     # Affichage du résultat
     st.success("✅ Transcription terminée")
     st.text_area("Résultat :", transcript, height=200)
 
-    # Suppression du fichier temporaire
+    # Nettoyage
     os.remove(tmp_path)
+
+# ========================
+# Section métriques
+# ========================
+st.header("📊 Comparaison des modèles")
+
+# Exemple de métriques — à remplacer par tes vraies valeurs
+metrics_data = {
+    "Modèle": ["Kaldi baseline", "Kaldi amélioré"],
+    "WER (%)": [18.5, 12.3],
+    "CER (%)": [10.2, 6.7],
+    "Temps d'inférence (s)": [2.4, 1.8],
+}
+
+metrics_df = pd.DataFrame(metrics_data)
+
+st.table(metrics_df)
