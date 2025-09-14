@@ -9,11 +9,13 @@ import pandas as pd
 
 def transcribe_model1(audio_path, lang="fr"):
     # ⚠️ Remplacer par ton vrai modèle Kaldi / ASR 1
-    return f"[Modèle 1] Transcription de démo pour {os.path.basename(audio_path)}"
+    test = 'test 1'
+    return f"[Modèle 1] Transcription de démo pour {test}"
 
 def transcribe_model2(audio_path, lang="fr"):
     # ⚠️ Remplacer par ton vrai modèle Kaldi / ASR 2
-    return f"[Modèle 2] Transcription de démo pour {os.path.basename(audio_path)}"
+    test = 'test 2'
+    return f"[Modèle 2] Transcription de démo pour {test}"
 
 # ========================
 # Interface Streamlit
